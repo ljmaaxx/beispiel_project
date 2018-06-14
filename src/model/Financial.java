@@ -1,4 +1,4 @@
-package model.beans;
+package model;
 
 public class Financial {
     private double extraExpenses;

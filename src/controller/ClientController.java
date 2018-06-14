@@ -1,28 +1,28 @@
 package controller;
 
-import model.ClientRegister;
+import model.ClientRepository;
 import model.beans.Client;
 
 public class ClientController {
-    private ClientRegister clientRegister;
+    private ClientRepository repository;
 
     public void registerClient(Client b) {
-        if(b != null && (!this.clientRegister.getRepository().read().contains(b)))
-            this.clientRegister.getRepository().create(b);
+        if(b != null && (!this.repository.read().contains(b)))
+            this.repository.create(b);
     }
 
     public void removeClient(Client c) {
-        if (c != null && this.clientRegister.getRepository().read().contains(c))
-            this.clientRegister.getRepository().delete(c);
+        if (c != null && this.repository.read().contains(c))
+            this.repository.delete(c);
     }
 
     public Client searchBook(String name) {
-        if ((!this.clientRegister.getRepository().read().isEmpty()) && name != null)
+        if ((!this.repository.read().isEmpty()) && name != null)
         {
-            for (int i = 0; i < this.clientRegister.getRepository().read().size(); ++i) {
-                if (this.clientRegister.getRepository().read().get(i).getName().equals(name))
+            for (int i = 0; i < this.repository.read().size(); ++i) {
+                if (this.repository.read().get(i).getName().equals(name))
                 {
-                    return this.clientRegister.getRepository().read().get(i);
+                    return this.repository.read().get(i);
                 }
             }
         }

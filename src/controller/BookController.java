@@ -1,39 +1,44 @@
 package controller;
 
-import model.BookRegister;
-import model.Stock;
+import model.BookRepository;
 import model.beans.Book;
 
+import java.util.ArrayList;
+
 public class BookController {
-    private BookRegister bookRegister;
-    private Stock stock;
+    private BookRepository repository;
 
-    public void registerBook(Book b) {
-        if(b != null && (!this.bookRegister.getRepository().read().contains(b)))
-            this.bookRegister.getRepository().create(b);
+    public BookController() {
+        this.repository = new BookRepository();
     }
 
-    public void removeBook(Book b) {
-        if (b != null && this.bookRegister.getRepository().read().contains(b))
-            this.bookRegister.getRepository().delete(b);
+    public BookRepository getRepository() {
+        return repository;
     }
+
+    public void createBook(Book b) {
+        this.repository.create(b);
+    }
+
+    public ArrayList<Book> read() {
+        return this.repository.read();
+    }
+
+    public void updateBook(Book oldBook, Book newBook) {
+        this.repository.update(oldBook, newBook);
+    }
+
 
     public Book searchBook(String title) {
-        if ((!this.bookRegister.getRepository().read().isEmpty()) && title != null)
-        {
-            for (int i = 0; i < this.bookRegister.getRepository().read().size(); ++i) {
-                if (this.bookRegister.getRepository().read().get(i).getTitle().equals(title))
-                {
-                    return this.bookRegister.getRepository().read().get(i);
-                }
+        for (int i = 0; i < this.repository.read().size(); ++i) {
+            if (this.repository.read().get(i).getTitle().equals(title)) {
+                return this.repository.read().get(i);
             }
         }
         return null;
     }
 
-    public void produce(Book b) {
-        if (b != null) {
-            stock.searchProduct("Book").increaseAmount(1);
-        }
+    public void importBook(int amount, Book bookImported) {
+        bookImported.increaseAmountAvailable(amount);
     }
 }

@@ -3,7 +3,7 @@ package model.beans;
 public class Client {
     private String name;
     private String idCode;
-    private Sale financialSituation;
+    //private Sale financialSituation; como verificar se ele concluiu a última compra?
 
     public Client(String name, String idCode) {
         this.name = name;
@@ -26,7 +26,4 @@ public class Client {
         this.idCode = idCode;
     }
 
-    public Sale getFinancialSituation() {
-        return financialSituation;
-    }
 }

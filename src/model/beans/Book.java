@@ -4,13 +4,14 @@ import java.util.Objects;
 
 public class Book {
     private String title;
-    private String author;
+    private Author author;
     private int year;
     private String genre;
     private String code;
     private double unitPrice;
+    private int amountAvailable;
 
-    public Book(String name, String author, int year, String genre, String code, double unitPrice) {
+    public Book(String name, Author author, int year, String genre, String code, double unitPrice) {
         this.title = name;
         this.author = author;
         this.year = year;
@@ -27,11 +28,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -65,6 +66,22 @@ public class Book {
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public int getAmountAvailable() {
+        return amountAvailable;
+    }
+
+    public void setAmountAvailable(int amountAvailable) {
+        this.amountAvailable = amountAvailable;
+    }
+
+    public void increaseAmountAvailable(int amount) {
+        this.amountAvailable += amount;
+    }
+
+    public void decreaseAmountAvailable(int amount) {
+        this.amountAvailable -= amount;
     }
 
     public String toString() {

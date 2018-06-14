@@ -1,43 +1,42 @@
 package model.beans;
 
-import model.beans.Book;
-import model.beans.Client;
+import java.util.ArrayList;
 
 public class Sale {
-    private int amountOfProducts;
-    private Book product;
-    private double totalPrice;
+    private ArrayList<Book> books;
     private Client buyer;
 
-    public Sale(int amountOfProducts, Book product, double totalPrice, Client buyer) {
-        this.amountOfProducts = amountOfProducts;
-        this.product = product;
-        this.totalPrice = totalPrice;
+    public Sale(ArrayList<Book> products, Client buyer) {
+        this.books = products;
         this.buyer = buyer;
     }
 
-    public int getAmountOfProducts() {
-        return amountOfProducts;
+    public Sale() {
+        this.books = new ArrayList<>();
     }
 
-    public void setAmountOfProducts(int amountOfProducts) {
-        this.amountOfProducts = amountOfProducts;
+    public ArrayList<Book> getBooks() {
+        return books;
     }
 
-    public Book getProduct() {
-        return product;
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
     }
 
-    public void setProduct(Book product) {
-        this.product = product;
+    public void addProductToSale(Book b) {
+        this.books.add(b);
+    }
+
+    public void removeProductOfSale(Book b) {
+        this.books.remove(b);
     }
 
     public double getTotalPrice() {
+        double totalPrice = 0;
+        for (int i = 0; i < books.size(); ++i) {
+            totalPrice += books.get(i).getUnitPrice();
+        }
         return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
     }
 
     public Client getBuyer() {
