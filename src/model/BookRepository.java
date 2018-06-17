@@ -24,6 +24,7 @@ public class BookRepository {
         this.books.add(newBook);
     }
 
+
     public void delete(Book b) {
         this.books.remove(b);
     }
