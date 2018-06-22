@@ -1,4 +1,4 @@
-package model.beans;
+package business.beans;
 
 public class Author {
     private String name;

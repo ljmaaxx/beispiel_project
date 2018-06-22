@@ -1,6 +1,4 @@
-package model.beans;
-
-import java.util.Objects;
+package business.beans;
 
 public class Book {
     private String title;

@@ -1,4 +1,4 @@
-package model.beans;
+package business.beans;
 
 import java.util.ArrayList;
 
@@ -45,10 +45,6 @@ public class Sale {
 
     public void setBuyer(Client buyer) {
         this.buyer = buyer;
-    }
-
-    public void export() {
-
     }
 
     public void sale() {

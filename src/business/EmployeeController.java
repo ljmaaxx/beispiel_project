@@ -1,7 +1,7 @@
-package controller;
+package business;
 
-import model.EmployeeRepository;
-import model.beans.Employee;
+import dados.EmployeeRepository;
+import negocios.beans.Employee;
 
 public class EmployeeController {
     private EmployeeRepository repository;

@@ -1,7 +1,7 @@
-package controller;
+package business;
 
-import model.ClientRepository;
-import model.beans.Client;
+import dados.ClientRepository;
+import negocios.beans.Client;
 
 public class ClientController {
     private ClientRepository repository;
