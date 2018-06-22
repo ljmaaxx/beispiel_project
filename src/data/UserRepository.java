@@ -1,7 +1,7 @@
 package data;
 
-import negocios.beans.User;
 
+import business.beans.User;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +43,7 @@ public class UserRepository implements IRepository<User> {
 
     @Override
     public boolean exist(User obj) {
-        if (this.users.contains(obj)) return true;
-        return false;
+        return this.users.contains(obj);
     }
 
 

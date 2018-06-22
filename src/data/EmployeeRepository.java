@@ -1,15 +1,22 @@
 package data;
 
-import negocios.beans.Employee;
-
+import business.beans.Employee;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRepository implements IRepository<Employee> {
     private ArrayList<Employee> employees;
+    private static EmployeeRepository instance;
 
-    public EmployeeRepository() {
+    private EmployeeRepository() {
         this.employees = new ArrayList<Employee>();
+    }
+
+    public EmployeeRepository getInstance() {
+        if (instance == null) {
+            instance = new EmployeeRepository();
+        }
+        return instance;
     }
 
     @Override
@@ -34,7 +41,6 @@ public class EmployeeRepository implements IRepository<Employee> {
     }
 
     public boolean exist(Employee e) {
-        if (this.employees.contains(e)) return true;
-        return false;
+        return this.employees.contains(e);
     }
 }

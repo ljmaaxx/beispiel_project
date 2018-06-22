@@ -1,15 +1,15 @@
 package business;
 
-import negocios.beans.Book;
+import business.beans.Book;
 
 import java.util.List;
 
-public class FachadaVisitante {
+public class VisitorFacade {
 
     private UserController userController;
     private BookController bookController;
 
-    public FachadaVisitante() {
+    public VisitorFacade() {
         this.userController = new UserController();
         this.bookController = new BookController();
     }

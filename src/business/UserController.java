@@ -1,8 +1,8 @@
 package business;
 
-import dados.IRepository;
-import dados.UserRepository;
-import negocios.beans.User;
+import business.beans.User;
+import data.IRepository;
+import data.UserRepository;
 
 import java.util.List;
 

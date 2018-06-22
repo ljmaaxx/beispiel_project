@@ -1,8 +1,9 @@
 package business;
 
-import dados.BookRepository;
-import dados.IRepository;
-import negocios.beans.Book;
+
+import business.beans.Book;
+import data.BookRepository;
+import data.IRepository;
 
 import java.util.ArrayList;
 import java.util.List;

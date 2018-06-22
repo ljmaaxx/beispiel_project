@@ -1,15 +1,23 @@
 package data;
 
-import negocios.beans.Client;
+import business.beans.Client;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClientRepository implements IRepository<Client> {
     private ArrayList<Client> clients;
+    private static ClientRepository instance;
 
-    public ClientRepository() {
+    private ClientRepository() {
         this.clients = new ArrayList<Client>();
+    }
+
+    public static ClientRepository getInstance() {
+        if (instance == null) {
+            instance = new ClientRepository();
+        }
+        return instance;
     }
 
     @Override
@@ -34,7 +42,6 @@ public class ClientRepository implements IRepository<Client> {
     }
 
     public boolean exist(Client c) {
-        if (this.clients.contains(c)) return true;
-        return false;
+        return this.clients.contains(c);
     }
 }

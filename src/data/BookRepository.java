@@ -1,7 +1,6 @@
 package data;
 
-import negocios.beans.Book;
-
+import business.beans.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +9,7 @@ public class BookRepository implements IRepository<Book> {
     private static BookRepository instance;
 
     private BookRepository() {
-        this.books = new ArrayList<Book>();
+        this.books = new ArrayList<>();
     }
 
     public static BookRepository getInstance() {
@@ -19,7 +18,6 @@ public class BookRepository implements IRepository<Book> {
         }
         return instance;
     }
-
 
     @Override
     public void create(Book obj) {
@@ -44,7 +42,6 @@ public class BookRepository implements IRepository<Book> {
     }
 
     public boolean exist(Book b) {
-        if (this.books.contains(b)) return true;
-        return false;
+        return this.books.contains(b);
     }
 }
