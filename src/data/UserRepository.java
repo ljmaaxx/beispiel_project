@@ -46,5 +46,10 @@ public class UserRepository implements IRepository<User> {
         return this.users.contains(obj);
     }
 
+    @Override
+    public User search(String obj) {
+        return null;
+    }
+
 
 }

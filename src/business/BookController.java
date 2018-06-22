@@ -27,8 +27,7 @@ public class BookController {
         this.repositoryBooks.update(oldBook, newBook);
     }
 
-
-    public List<Book> searchBook(Book b) //throws BookNotExistException
+    /*public List<Book> searchBook(Book b) //throws BookNotExistException
     {
         int valorEnum = 0; //
         String valorFiltro = "";
@@ -57,9 +56,17 @@ public class BookController {
         }
         return retorno;
 
+    }*/
+
+    public Book searchBook(String title) {
+        return (Book) this.repositoryBooks.search(title);
     }
 
     public void importBook(int amount, Book bookImported) {
         bookImported.increaseAmountAvailable(amount);
+    }
+
+    public void delete(Book obj) {
+        repositoryBooks.delete(obj);
     }
 }

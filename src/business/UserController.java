@@ -14,8 +14,13 @@ public class UserController {
         this.userRepository = UserRepository.getInstance();
     }
 
-    public void saveUser(){
-        //TODO pesquisar se o usuario existe antes de inserir um novo
+    public void saveUser(User user){
+        if (this.searchByUser(user.getUsername()) == null) {
+            this.userRepository.create(user);
+        }
+        else {
+            //TODO throw new usuarionaocadastradado exception?
+        }
     }
 
     public User searchByUser(String username){
@@ -39,15 +44,36 @@ public class UserController {
             if(search != null){
                 if(search.getPassword().equals(user.getPassword())){
                     //TODO aqui eu retorno true, ou seja, sucesso no login
+                    return true;
                 }else{
                     //TODO aqui eu retorno exceção pq a senha não é a mesma
                 }
             }
-        }else{
+        }
+        else {
             return false;
             //TODO execeção usuario não existe ou não cadastrado
         }
         return false;
     }
 
+    public List<User> read() {
+        return userRepository.read();
+    }
+
+    public void update(User oldObj, User newObj) {
+        userRepository.update(oldObj, newObj);
+    }
+
+    public void delete(User obj) {
+        userRepository.delete(obj);
+    }
+
+    public boolean exist(User obj) {
+        return userRepository.exist(obj);
+    }
+
+    public User search(String obj) {
+        return (User) userRepository.search(obj);
+    }
 }

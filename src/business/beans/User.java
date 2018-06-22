@@ -1,8 +1,8 @@
 package business.beans;
 
 import java.util.Objects;
-
-public class User implements Comparable{
+//TODO olhar classe comparator ou camparable
+public class User {
     private String username;
     private String password;
 
@@ -29,13 +29,6 @@ public class User implements Comparable{
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        //TODO implementar isso aqui
-        return 0;
-
     }
 
     @Override

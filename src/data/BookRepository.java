@@ -44,4 +44,14 @@ public class BookRepository implements IRepository<Book> {
     public boolean exist(Book b) {
         return this.books.contains(b);
     }
+
+    @Override
+    public Book search(String title) {
+        for (int i = 0; i < this.books.size(); ++i) {
+            if (this.books.get(i).getTitle().equals(title)) {
+                return this.books.get(i);
+            }
+        }
+        return null;
+    }
 }

@@ -12,7 +12,7 @@ public class EmployeeRepository implements IRepository<Employee> {
         this.employees = new ArrayList<Employee>();
     }
 
-    public EmployeeRepository getInstance() {
+    public static EmployeeRepository getInstance() {
         if (instance == null) {
             instance = new EmployeeRepository();
         }
@@ -42,5 +42,15 @@ public class EmployeeRepository implements IRepository<Employee> {
 
     public boolean exist(Employee e) {
         return this.employees.contains(e);
+    }
+
+    @Override
+    public Employee search(String employeeName) {
+        for (int i = 0; i < this.employees.size(); ++i) {
+            if (this.employees.get(i).getName().equals(employeeName)) {
+                return this.employees.get(i);
+            }
+        }
+        return null;
     }
 }

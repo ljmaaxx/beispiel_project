@@ -18,6 +18,8 @@ public class Book {
         this.unitPrice = unitPrice;
     }
 
+    public Book() {}
+
     public String getTitle() {
         return title;
     }
@@ -54,10 +56,6 @@ public class Book {
         return code;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public double getUnitPrice() {
         return unitPrice;
     }
@@ -82,6 +80,10 @@ public class Book {
         this.amountAvailable -= amount;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String toString() {
         String s = "Book informations:\n";
         s += "Title: " + this.getTitle();
@@ -102,5 +104,4 @@ public class Book {
         }
         return false;
     }
-
 }

@@ -1,12 +1,13 @@
 package business.beans;
 
-public class Client {
+public abstract class Person {
     private String name;
+    private int age;
     private String idCode;
-    //private Sale financialSituation; como verificar se ele concluiu a última compra?
 
-    public Client(String name, String idCode) {
+    public Person(String name, int age, String idCode) {
         this.name = name;
+        this.age = age;
         this.idCode = idCode;
     }
 
@@ -18,6 +19,14 @@ public class Client {
         this.name = name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String getIdCode() {
         return idCode;
     }
@@ -25,5 +34,4 @@ public class Client {
     public void setIdCode(String idCode) {
         this.idCode = idCode;
     }
-
 }

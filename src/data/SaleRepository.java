@@ -12,7 +12,7 @@ public class SaleRepository implements IRepository<Sale> {
         this.sales = new ArrayList<>();
     }
 
-    public SaleRepository getInstance() {
+    public static SaleRepository getInstance() {
         if (instance == null) {
             instance = new SaleRepository();
         }
@@ -42,5 +42,15 @@ public class SaleRepository implements IRepository<Sale> {
 
     public boolean exist(Sale s) {
         return this.sales.contains(s);
+    }
+
+    @Override
+    public Sale search(String obj) {
+        for (int i = 0; i < this.sales.size(); ++i) {
+            if (this.sales.get(i).getBooksOnShoppingCart().get(i).getBookToBeBought().getTitle().equals(sales)) {
+                return this.sales.get(i);
+            }
+        }
+        return null;
     }
 }

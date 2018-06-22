@@ -6,19 +6,17 @@ import java.util.List;
 
 public class VisitorFacade {
 
-    private UserController userController;
     private BookController bookController;
 
     public VisitorFacade() {
-        this.userController = new UserController();
         this.bookController = new BookController();
     }
 
-    public List<Book> searchBook(Book b) {
-        return bookController.searchBook(b);
+    public List<Book> read() {
+        return bookController.read();
     }
 
-
-
-
+    public Book search(String title) {
+        return this.bookController.searchBook(title);
+    }
 }

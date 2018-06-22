@@ -2,30 +2,38 @@ package business;
 
 import business.beans.Employee;
 import data.EmployeeRepository;
+import data.IRepository;
+
+import java.util.List;
 
 public class EmployeeController {
-    private EmployeeRepository repository;
+    private IRepository employeeRepository;
 
-    public void registerEmployee(Employee e) {
-        if(e != null && (!this.repository.read().contains(e)))
-            this.repository.create(e);
+    public EmployeeController() {
+        this.employeeRepository = EmployeeRepository.getInstance();
     }
 
-    public void removeEmployee(Employee e) {
-        if (e != null && this.repository.read().contains(e))
-            this.repository.delete(e);
+    public void create(Employee obj) {
+        employeeRepository.create(obj);
     }
 
-    public Employee searchEmployee(String name) {
-        if ((!this.repository.read().isEmpty()) && name != null)
-        {
-            for (int i = 0; i < this.repository.read().size(); ++i) {
-                if (this.repository.read().get(i).getName().equals(name))
-                {
-                    return this.repository.read().get(i);
-                }
-            }
-        }
-        return null;
+    public List<Employee> read() {
+        return employeeRepository.read();
+    }
+
+    public void update(Employee oldObj, Employee newObj) {
+        employeeRepository.update(oldObj, newObj);
+    }
+
+    public void delete(Employee obj) {
+        employeeRepository.delete(obj);
+    }
+
+    public boolean exist(Employee obj) {
+        return employeeRepository.exist(obj);
+    }
+
+    public Employee search(String obj) {
+        return (Employee) employeeRepository.search(obj);
     }
 }
