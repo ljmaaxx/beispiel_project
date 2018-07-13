@@ -1,6 +1,7 @@
 package business;
 
 import business.beans.Book;
+import business.beans.BookOnPurchase;
 import business.beans.Sale;
 
 public class Financial {

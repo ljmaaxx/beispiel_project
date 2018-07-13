@@ -20,7 +20,8 @@ public class Employee extends Person{
         String s = "Employee information:";
         s += "\nName: " + this.getName();
         s += "\nAge: " + this.getAge();
-        s += "\nSalary: " + this.getSalary();
+        s += "\nSalary: $" + this.getSalary();
         return s;
+
     }
 }

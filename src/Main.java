@@ -5,6 +5,8 @@ import business.beans.Author;
 import business.beans.Book;
 import business.beans.Employee;
 import business.beans.User;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -19,11 +21,21 @@ public class Main {
         Author rob = new Author("Robert James", "Fantasy");
         Author tab = new Author("Tabata Northest", "Romance");
 
-        Book one = new Book("Grite", jada, 2017, "Horror", "HO5O - J",
+        ArrayList<Author> jadaArray = new ArrayList<>();
+        jadaArray.add(jada);
+
+        ArrayList<Author> robArray = new ArrayList<>();
+        robArray.add(rob);
+
+        ArrayList<Author> tabArray = new ArrayList<>();
+        tabArray.add(tab);
+
+
+        Book one = new Book("Grite", jadaArray, 2017, "Horror", "HO5O - J",
                 22.89);
-        Book two = new Book("O Castelo da Montanha", rob, 1984, "Fantasy",
+        Book two = new Book("O Castelo da Montanha", robArray, 1984, "Fantasy",
                 "FO88 - R", 98.55 );
-        Book three = new Book("O Último Flamingo do Lago", tab, 2015, "Romance",
+        Book three = new Book("O Último Flamingo do Lago", tabArray, 2015, "Romance",
                 "RO90- T", 19.99);
         one.setAmountAvailable(1);
         two.setAmountAvailable(1);
@@ -74,6 +86,7 @@ public class Main {
             else if (choice == 2) {
                 System.out.println("Bem-vindo funcionário.");
                 System.out.println("Digite o nome do livro que será vendido: ");
+                //TODO na gui, fazer uma fachada que adiciona os livros à compra de uma lista
                 String title = input.nextLine();
                 Book purchasedBook = employeeFacade.searchBook(title);
                 employeeFacade.sale(purchasedBook);
@@ -111,7 +124,7 @@ public class Main {
 
                             System.out.println("Digite o gênero que esse autor escreve: ");
                             newAuthor.setGender(input.nextLine());
-                            newBook.setAuthor(newAuthor);
+                            newBook.addAuthors(newAuthor);
 
                             System.out.println("Voltando para o livro: ");
                             System.out.println("Digite o  ano de publicação do livro: ");
@@ -127,6 +140,7 @@ public class Main {
                             System.out.println("Digite o preço do livro: ");
                             newBook.setUnitPrice(input.nextDouble());
                             input.nextLine();
+                            admFacade.createBook(newBook);
                             break;
                         }
                         case 2: {
@@ -154,7 +168,6 @@ public class Main {
 
                     switch(choiceCrudEmployee) {
                         case 1: {
-
                             System.out.println("\nCriando um funcionário: ");
                             System.out.println("Digite o nome do funcionário: ");
                             String name = input.nextLine();

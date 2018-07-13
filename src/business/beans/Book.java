@@ -1,24 +1,28 @@
 package business.beans;
 
+import java.util.ArrayList;
+
 public class Book {
     private String title;
-    private Author author;
+    private ArrayList<Author> authors;
     private int year;
     private String genre;
     private String code;
     private double unitPrice;
     private int amountAvailable;
 
-    public Book(String name, Author author, int year, String genre, String code, double unitPrice) {
+    public Book(String name, ArrayList<Author> authors, int year, String genre, String code, double unitPrice) {
         this.title = name;
-        this.author = author;
+        this.authors = authors;
         this.year = year;
         this.genre = genre;
         this.code = code;
         this.unitPrice = unitPrice;
     }
 
-    public Book() {}
+    public Book() {
+        this.authors = new ArrayList<>();
+    }
 
     public String getTitle() {
         return title;
@@ -28,12 +32,12 @@ public class Book {
         this.title = title;
     }
 
-    public Author getAuthor() {
-        return author;
+    public ArrayList<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void addAuthors(Author a) {
+        this.authors.add(a);
     }
 
     public int getYear() {
@@ -87,7 +91,7 @@ public class Book {
     public String toString() {
         String s = "Book informations:\n";
         s += "Title: " + this.getTitle();
-        s += "\nAuthor: " + this.getAuthor();
+        s += "\nAuthor: hahaha arraylist";
         s += "\nYear: " + this.getYear();
         s += "\nGenre: " + this.getGenre();
         s += "\nUnit price: $" + this.getUnitPrice();
@@ -100,8 +104,7 @@ public class Book {
         if (obj == this) return true;
         if (obj instanceof Book) {
             Book b = (Book) obj;
-            if(b.getCode().equals(this.getCode()))
-                return true;
+            if(b.getCode().equals(this.getCode())) return true;
         }
         return false;
     }

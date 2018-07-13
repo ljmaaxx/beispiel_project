@@ -1,6 +1,4 @@
-package business;
-
-import business.beans.Book;
+package business.beans;
 
 public class BookOnPurchase {
     private Book bookToBeBought;

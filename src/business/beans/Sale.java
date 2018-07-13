@@ -1,7 +1,5 @@
 package business.beans;
 
-import business.BookOnPurchase;
-
 import java.util.ArrayList;
 
 public class Sale {
@@ -51,12 +49,5 @@ public class Sale {
                     this.booksOnShoppingCart.get(i).getAmount();
         }
         return totalPrice;
-    }
-
-    public void sale() {
-        for (int i = 0; i < booksOnShoppingCart.size(); ++i) {
-            this.booksOnShoppingCart.get(i).getBookToBeBought().decreaseAmountAvailable
-                    (this.booksOnShoppingCart.get(i).getAmount());
-        }
     }
 }

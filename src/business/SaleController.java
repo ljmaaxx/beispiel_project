@@ -38,7 +38,6 @@ public class SaleController {
 
     public void sale(Book b) {
         this.financial.sale(b);
-
     }
 
     public Sale search(String obj) {
