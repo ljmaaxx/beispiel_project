@@ -37,4 +37,9 @@ public class Author {
         return Objects.equals(name, author.name) &&
                 Objects.equals(gender, author.gender);
     }
+
+    public String toString() {
+        String s = this.getName();
+        return s;
+    }
 }

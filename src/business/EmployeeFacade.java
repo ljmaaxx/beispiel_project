@@ -34,8 +34,8 @@ public class EmployeeFacade {
         return saleController.exist(obj);
     }
 
-    public void sale() {
-        saleController.sale();
+    public void sale(Book b) {
+        saleController.sale(b);
     }
 
     public Sale search(String obj) {

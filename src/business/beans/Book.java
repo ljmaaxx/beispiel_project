@@ -90,7 +90,8 @@ public class Book {
         s += "\nAuthor: " + this.getAuthor();
         s += "\nYear: " + this.getYear();
         s += "\nGenre: " + this.getGenre();
-        s += "\nUnit price: " + this.getUnitPrice();
+        s += "\nUnit price: $" + this.getUnitPrice();
+        s += "\nAmount Available: " + this.getAmountAvailable();
         return s;
     }
 

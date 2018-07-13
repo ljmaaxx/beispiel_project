@@ -1,5 +1,6 @@
 package business;
 
+import business.beans.Book;
 import business.beans.Sale;
 import data.IRepository;
 import data.SaleRepository;
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class SaleController {
     private IRepository saleRepository;
+    private Financial financial;
     private Sale sales;
 
     public SaleController() {
@@ -34,8 +36,9 @@ public class SaleController {
         return saleRepository.exist(obj);
     }
 
-    public void sale() {
-        this.sales.sale();
+    public void sale(Book b) {
+        this.financial.sale(b);
+
     }
 
     public Sale search(String obj) {

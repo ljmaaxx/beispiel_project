@@ -15,4 +15,12 @@ public class Employee extends Person{
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    public String toString() {
+        String s = "Employee information:";
+        s += "\nName: " + this.getName();
+        s += "\nAge: " + this.getAge();
+        s += "\nSalary: " + this.getSalary();
+        return s;
+    }
 }
