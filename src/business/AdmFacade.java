@@ -4,7 +4,9 @@ import business.beans.Book;
 import business.beans.Employee;
 import business.beans.Sale;
 import business.beans.User;
+import exceptions.BookDoesntExistException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdmFacade {
@@ -32,8 +34,13 @@ public class AdmFacade {
         bookController.updateBook(oldBook, newBook);
     }
 
-    public Book searchBook(String title) {
-        return bookController.searchBook(title);
+    public ArrayList<Book> searchBook(String value) {
+        try {
+            return bookController.searchBook(value);
+        } catch (BookDoesntExistException e) {
+            e.getMessage();
+            return null;
+        }
     }
 
     public void importBook(int amount, Book bookImported) {

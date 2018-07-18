@@ -1,7 +1,6 @@
 import business.AdmFacade;
 import business.EmployeeFacade;
 import business.VisitorFacade;
-import business.beans.Author;
 import business.beans.Book;
 import business.beans.Employee;
 import business.beans.User;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         VisitorFacade visitorFacade = new VisitorFacade();
@@ -246,5 +245,5 @@ public class Main {
                 System.out.println("Escolha inválida.");
             }
         }
-    }
+    }*/
 }

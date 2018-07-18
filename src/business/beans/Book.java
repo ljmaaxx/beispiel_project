@@ -1,17 +1,15 @@
 package business.beans;
 
-import java.util.ArrayList;
-
 public class Book {
     private String title;
-    private ArrayList<Author> authors;
+    private String authors;
     private int year;
     private String genre;
     private String code;
     private double unitPrice;
     private int amountAvailable;
 
-    public Book(String name, ArrayList<Author> authors, int year, String genre, String code, double unitPrice) {
+    public Book(String name, String authors, int year, String genre, String code, double unitPrice) {
         this.title = name;
         this.authors = authors;
         this.year = year;
@@ -20,9 +18,7 @@ public class Book {
         this.unitPrice = unitPrice;
     }
 
-    public Book() {
-        this.authors = new ArrayList<>();
-    }
+    public Book() { }
 
     public String getTitle() {
         return title;
@@ -32,12 +28,12 @@ public class Book {
         this.title = title;
     }
 
-    public ArrayList<Author> getAuthors() {
+    public String getAuthors() {
         return authors;
     }
 
-    public void addAuthors(Author a) {
-        this.authors.add(a);
+    public void addAuthors(String name) {
+        this.authors += ", " + name;
     }
 
     public int getYear() {
@@ -91,7 +87,7 @@ public class Book {
     public String toString() {
         String s = "Book informations:\n";
         s += "Title: " + this.getTitle();
-        s += "\nAuthor: hahaha arraylist";
+        s += "\nAuthor: " + this.getAuthors();
         s += "\nYear: " + this.getYear();
         s += "\nGenre: " + this.getGenre();
         s += "\nUnit price: $" + this.getUnitPrice();

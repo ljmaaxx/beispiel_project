@@ -1,6 +1,7 @@
 package business;
 
 import business.beans.Book;
+import exceptions.BookDoesntExistException;
 
 import java.util.List;
 
@@ -16,7 +17,12 @@ public class VisitorFacade {
         return bookController.read();
     }
 
-    public Book search(String title) {
-        return this.bookController.searchBook(title);
+    public Book search(String value) {
+        try {
+            return this.bookController.searchBook(value);
+        } catch (BookDoesntExistException e) {
+            e.getMessage();
+            return null;
+        }
     }
 }

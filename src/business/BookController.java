@@ -4,6 +4,7 @@ package business;
 import business.beans.Book;
 import data.BookRepository;
 import data.IRepository;
+import exceptions.BookDoesntExistException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,39 +28,50 @@ public class BookController {
         this.repositoryBooks.update(oldBook, newBook);
     }
 
-    /*public List<Book> searchBook(Book b) //throws BookNotExistException
-    {
-        int valorEnum = 0; //
-        String valorFiltro = "";
-        List<Book> retorno = new ArrayList<Book>();
-        if (this.repositoryBooks.exist(b)) {
-            for (Object book : this.repositoryBooks.read()){
-                if(book instanceof Book){
-                    switch(valorEnum){
-                        case 0: //EnumCampo.NomeLivro
-                            if(((Book) book).getTitle().contains(valorFiltro)){
-                                retorno.add((Book)book);
-                            }
-                            break;
-                        case 1: //EnumCampo.Codigo
+    public ArrayList<Book> searchBook(String value) throws BookDoesntExistException {
+        ArrayList<Book> booksToReturn = (ArrayList) this.repositoryBooks.read();
+        ArrayList<Book> matchBooks = new ArrayList<>();
 
-                            break;
-                        default:
-                            //TODO Exceocao pq nao achou o id do enum
-
-                    }
+        if (true) {
+            for (int i = 0; i < booksToReturn.size(); ++i) {
+                String title = booksToReturn.get(i).getTitle();
+                if (value.equals(title)) {
+                    matchBooks.add(booksToReturn.get(i));
                 }
             }
-        }else{
-            //TODO implementar exceção de "não existe livro"
-            //throw new BookNotExistException();
+
+            for (int i = 0; i < booksToReturn.size(); ++i) {
+                String author = booksToReturn.get(i).getAuthors();
+                if (value.equals(author)) {
+                    matchBooks.add(booksToReturn.get(i));
+                }
+            }
+
+            for (int i = 0; i < booksToReturn.size(); ++i) {
+                String title = booksToReturn.get(i).getTitle();
+                if (value.equals(title)) {
+                    matchBooks.add(booksToReturn.get(i));
+                }
+            }
+
+            for (int i = 0; i < booksToReturn.size(); ++i) {
+                String code = booksToReturn.get(i).getCode();
+                if (value.equals(code)) {
+                    matchBooks.add(booksToReturn.get(i));
+                }
+            }
+
+            for (int i = 0; i < booksToReturn.size(); ++i) {
+                String genre = booksToReturn.get(i).getGenre();
+                if (value.equals(genre)) {
+                    matchBooks.add(booksToReturn.get(i));
+                }
+            }
         }
-        return retorno;
-
-    }*/
-
-    public Book searchBook(String title) {
-        return (Book) this.repositoryBooks.search(title);
+        else {
+            throw new BookDoesntExistException();
+        }
+        return matchBooks;
     }
 
     public void importBook(int amount, Book bookImported) {

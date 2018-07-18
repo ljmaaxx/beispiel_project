@@ -2,6 +2,7 @@ package business;
 
 import business.beans.Book;
 import business.beans.Sale;
+import exceptions.BookDoesntExistException;
 
 import java.util.List;
 
@@ -42,7 +43,12 @@ public class EmployeeFacade {
         return saleController.search(obj);
     }
 
-    public Book searchBook(String title) {
-        return bookController.searchBook(title);
+    public Book searchBook(String value) {
+        try {
+            return bookController.searchBook(value);
+        } catch (BookDoesntExistException e) {
+            e.getMessage();
+            return null;
+        }
     }
 }
