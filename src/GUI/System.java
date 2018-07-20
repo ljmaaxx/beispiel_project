@@ -29,7 +29,6 @@ public class System extends Application {
     public void start(Stage primaryStage) {
         instance = this;
         this.primaryStage = primaryStage;
-        this.primaryStage.setResizable(false);
         this.primaryStage.setTitle("Visitor Facade");
         this.rootScene = new Pane();
 
@@ -48,6 +47,7 @@ public class System extends Application {
                 "FO88 - R", 98.55 );
         Book three = new Book("O Último Flamingo do Lago", "Tabata Northest", 2015, "Romance",
                 "RO90- T", 19.99);
+        //TODO procurar por apenas partes, como um filtro
         one.setAmountAvailable(1);
         two.setAmountAvailable(1);
         three.setAmountAvailable(10);
@@ -63,7 +63,7 @@ public class System extends Application {
             loader.setLocation(System.class.getResource("loginScreen.fxml"));
             Pane pane = loader.load();
             this.rootScene.getChildren().add(pane);
-        } catch(IOException e){
+        } catch (IOException e){
             e.printStackTrace();
         }
     }

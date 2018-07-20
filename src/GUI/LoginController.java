@@ -1,5 +1,6 @@
 package GUI;
 
+import business.beans.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,13 +28,10 @@ public class LoginController {
     private TextField userField;
 
     private System s;
-    private String user;
-    private String pass;
+    private User userAdm = new User("adm", "senha");
 
     public void initialize(){
         this.s = System.getInstance();
-        this.user = "adm_Linda";
-        this.pass = "senha";
 
         this.passwordField.setOnKeyPressed(e -> {
             if (e.getCode() == KeyCode.ENTER) {
@@ -53,8 +51,8 @@ public class LoginController {
         Parent root = null;
         boolean loginSucceed = false;
         try {
-            if(userField.getText().equals(user)){
-                if(passwordField.getText().equals(pass)){
+            if(userField.getText().equals(userAdm.getUsername())){
+                if(passwordField.getText().equals(userAdm.getPassword())){
                     stage = (Stage) enterButton.getScene().getWindow();
                     root = FXMLLoader.load(getClass().getResource("FacadeChoice.fxml"));
                     loginSucceed = true;
@@ -76,7 +74,7 @@ public class LoginController {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 String actualTitle = stage.getTitle();
-                stage.setTitle(actualTitle + " - " + ("" + user.charAt(0)).toUpperCase() + user.substring(1, user.length()));
+                stage.setTitle(actualTitle + " - " + ("" + userAdm.getUsername().charAt(0)).toUpperCase() + userAdm.getUsername().substring(1, userAdm.getUsername().length()));
                 stage.setResizable(true);
                 s.changeStage(stage);
             }
