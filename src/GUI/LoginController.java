@@ -2,13 +2,10 @@ package GUI;
 
 import business.AdmFacade;
 import business.beans.User;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -45,14 +42,11 @@ public class LoginController {
                 }
             }
         });
-        this.enterButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    login();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        this.enterButton.setOnAction(event -> {
+            try {
+                login();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }
@@ -66,8 +60,7 @@ public class LoginController {
         if(userField.getText().equals(userAdm.getUsername())) {
             if (passwordField.getText().equals(userAdm.getPassword())) {
                 stage = (Stage) enterButton.getScene().getWindow();
-//                root = FXMLLoader.load(getClass().getResource("AdmFacade.fxml"));
-                root = FXMLLoader.load(getClass().getResource("teste.fxml"));
+                root = FXMLLoader.load(getClass().getResource("AdmFacade.fxml"));
                 loginSucceed = true;
             }
         }
@@ -101,7 +94,7 @@ public class LoginController {
         if(loginSucceed){
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Administrador");
+            stage.setTitle("Livraria Beispiel");
             s.changeStage(stage);
         }
     }

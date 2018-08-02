@@ -16,9 +16,10 @@ public class Book {
         this.genre = genre;
         this.code = code;
         this.unitPrice = unitPrice;
+        this.amountAvailable = 0;
     }
 
-    public Book() { }
+    public Book() { this.amountAvailable = 0; }
 
     public String getTitle() {
         return title;

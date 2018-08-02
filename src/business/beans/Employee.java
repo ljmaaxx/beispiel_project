@@ -2,11 +2,20 @@ package business.beans;
 
 public class Employee extends Person{
     private double salary;
+    private User systemUser;
+
+    public Employee(String name, int age, String idCode, double salary, User systemUser) {
+        super(name, age, idCode);
+        this.salary = salary;
+        this.systemUser = systemUser;
+    }
 
     public Employee(String name, int age, String idCode, double salary) {
         super(name, age, idCode);
         this.salary = salary;
     }
+
+    public Employee() {}
 
     public double getSalary() {
         return salary;
@@ -23,5 +32,13 @@ public class Employee extends Person{
         s += "\nSalary: $" + this.getSalary();
         return s;
 
+    }
+
+    public User getSystemUser() {
+        return systemUser;
+    }
+
+    public void setSystemUser(User systemUser) {
+        this.systemUser = systemUser;
     }
 }

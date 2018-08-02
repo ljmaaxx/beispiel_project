@@ -2,6 +2,7 @@ package GUI;
 
 import business.AdmFacade;
 import business.beans.Book;
+import business.beans.Employee;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -37,6 +38,7 @@ public class System extends Application {
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
         this.loadBooks();
+        this.loadEmployees();
         this.openLoginScreen();
     }
 
@@ -57,6 +59,16 @@ public class System extends Application {
         facade.createBook(three);
     }
 
+    private void loadEmployees() {
+        Employee john = new Employee("John Silverstone", 40, "JS4000", 950.00);
+        Employee jenna = new Employee("Jenna McAdams", 23, "JM23000", 485.00);
+        Employee juan = new Employee("Juan Ramirez", 34, "JR34000", 1859.00);
+
+        facade.create(john);
+        facade.create(jenna);
+        facade.create(juan);
+    }
+
     private void openLoginScreen(){
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -68,7 +80,7 @@ public class System extends Application {
         }
     }
 
-    public void changeStage(Stage stage){
+    protected void changeStage(Stage stage){
         this.primaryStage = stage;
     }
 

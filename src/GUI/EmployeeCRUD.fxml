@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EmployeeCRUDController">
+   <children>
+      <Button fx:id="crudBooksButton" layoutX="66.0" layoutY="238.0" mnemonicParsing="false" text="CRUD Livros" />
+      <Button fx:id="crudEmployeesButton" layoutX="48.0" layoutY="299.0" mnemonicParsing="false" text="CRUD Funcionários" />
+      <Button fx:id="crudUsersButton" layoutX="59.0" layoutY="363.0" mnemonicParsing="false" text="CRUD Usuários" />
+      <Line endX="7.0" endY="668.0" layoutX="204.0" layoutY="70.0" startX="7.0" startY="-70.0" stroke="#00000030" />
+      <TabPane layoutX="212.0" layoutY="1.0" prefHeight="739.0" prefWidth="787.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="CRUD Funcionários">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="6.0" prefHeight="702.0" prefWidth="787.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="Cadastrar um funcionário">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="622.0" prefWidth="839.0">
+                                       <children>
+                                          <Button fx:id="createEmployeeButton" layoutX="594.0" layoutY="516.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="66.0" text="Finalizar" />
+                                          <Label layoutX="256.0" layoutY="115.0" prefHeight="25.0" prefWidth="138.0" text="Criando um funcionário" />
+                                          <Label layoutX="136.0" layoutY="189.0" text="Digite o nome do funcionário:" />
+                                          <Label layoutX="140.0" layoutY="247.0" text="Digite a idade do funcionário:" />
+                                          <Label layoutX="133.0" layoutY="305.0" text="Digite o código do funcionário:" />
+                                          <Label layoutX="137.0" layoutY="362.0" text="Digite o salário do funcionário:" />
+                                          <TextField fx:id="createEmployeeFieldName" layoutX="308.0" layoutY="185.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <TextField fx:id="createEmployeeFieldAge" layoutX="308.0" layoutY="243.0" prefHeight="25.0" prefWidth="56.0" />
+                                          <TextField fx:id="createEmployeeFieldCode" layoutX="308.0" layoutY="301.0" prefHeight="25.0" prefWidth="96.0" />
+                                          <TextField fx:id="createEmployeeFieldSalary" layoutX="308.0" layoutY="358.0" prefHeight="25.0" prefWidth="96.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Excluir um funcionário">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="622.0" prefWidth="839.0">
+                                       <children>
+                                          <Button fx:id="deleteEmployeeButton" layoutX="612.0" layoutY="202.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="66.0" text="Excluir" />
+                                          <Label layoutX="279.0" layoutY="35.0" prefHeight="25.0" prefWidth="137.0" text="Excluindo um funcionário" />
+                                          <Label layoutX="126.0" layoutY="122.0" text="Digite o código do funcionário que deseja excluir:" />
+                                          <TextField fx:id="deleteEmployeeFieldCodeToDelete" layoutX="394.0" layoutY="118.0" prefHeight="25.0" prefWidth="124.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</Pane>

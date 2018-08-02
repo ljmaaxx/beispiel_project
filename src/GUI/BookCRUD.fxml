@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="738.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BookCRUDController">
+   <children>
+      <Button fx:id="crudBooksButton" layoutX="66.0" layoutY="238.0" mnemonicParsing="false" text="CRUD Livros" />
+      <Button fx:id="crudEmployeesButton" layoutX="48.0" layoutY="299.0" mnemonicParsing="false" text="CRUD Funcionários" />
+      <Button fx:id="crudUsersButton" layoutX="59.0" layoutY="363.0" mnemonicParsing="false" text="CRUD Usuários" />
+      <Line endX="7.0" endY="668.0" layoutX="204.0" layoutY="70.0" startX="7.0" startY="-70.0" stroke="#00000030" />
+      <TabPane layoutX="212.0" layoutY="1.0" prefHeight="739.0" prefWidth="787.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="CRUD Livros">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutY="6.0" prefHeight="702.0" prefWidth="787.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="Criar um livro">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="622.0" prefWidth="839.0">
+                                       <children>
+                                          <Button fx:id="finishRegisterBookButton" layoutX="442.0" layoutY="525.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="66.0" text="Finalizar" />
+                                          <Label layoutX="279.0" layoutY="35.0" prefHeight="25.0" prefWidth="93.0" text="Criando um livro" />
+                                          <Label layoutX="69.0" layoutY="122.0" text="Digite o nome do livro:" />
+                                          <Label layoutX="62.0" layoutY="180.0" text="Digite o gênero do livro:" />
+                                          <Label layoutX="34.0" layoutY="238.0" text="Digite o(os) autor(es) do livro:" />
+                                          <Label layoutX="66.0" layoutY="295.0" text="Digite o preço do livro:" />
+                                          <Label layoutX="19.0" layoutY="349.0" text="Digite o ano de publicação do livro:" />
+                                          <Label layoutX="66.0" layoutY="412.0" text="Digite o código do livro:" />
+                                          <TextField fx:id="bookCreateTitleField" layoutX="220.0" layoutY="118.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <TextField fx:id="bookCreateGenreField" layoutX="220.0" layoutY="176.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <TextField fx:id="bookCreateAuthorField" layoutX="220.0" layoutY="234.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <TextField fx:id="bookCreatePriceField" layoutX="220.0" layoutY="291.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <TextField fx:id="bookCreateYearField" layoutX="220.0" layoutY="345.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <TextField fx:id="bookCreateCodeField" layoutX="220.0" layoutY="408.0" prefHeight="25.0" prefWidth="210.0" />
+                                          <Button fx:id="backButton" layoutX="104.0" layoutY="484.0" mnemonicParsing="false" text="Voltar" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Excluir um livro">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="240.0" layoutY="54.0" text="Excluindo um livro" />
+                                          <Label layoutX="25.0" layoutY="153.0" text="Digite o código do livro que deseja excluir:" />
+                                          <Button fx:id="deleteBookButton" layoutX="373.0" layoutY="211.0" mnemonicParsing="false" text="Excluir" />
+                                          <TextField fx:id="bookCodeToDeleteField" layoutX="257.0" layoutY="149.0" prefHeight="25.0" prefWidth="96.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab text="Importar um livro">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField fx:id="importBookCode" layoutX="285.0" layoutY="123.0" prefHeight="25.0" prefWidth="111.0" />
+                                          <Label layoutX="250.0" layoutY="46.0" text="Importando um livro" />
+                                          <Label layoutX="40.0" layoutY="127.0" text="Digite o código do livro que deseja importar:" />
+                                          <Label layoutX="52.0" layoutY="183.0" text="Digite a quantidade que será importada:" />
+                                          <TextField fx:id="amountToImport" layoutX="269.0" layoutY="179.0" prefHeight="25.0" prefWidth="51.0" />
+                                          <Button fx:id="importBookButton" layoutX="373.0" layoutY="246.0" mnemonicParsing="false" text="Importar" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</Pane>

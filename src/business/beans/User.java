@@ -1,10 +1,12 @@
 package business.beans;
 
 import java.util.Objects;
-//TODO olhar classe comparator ou camparable
+
 public class User {
     private String username;
     private String password;
+
+    public User() {}
 
     public User(String username){
         this.username = username;

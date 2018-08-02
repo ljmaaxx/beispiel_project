@@ -45,9 +45,12 @@ public class EmployeeRepository implements IRepository<Employee> {
     }
 
     @Override
-    public Employee search(String employeeName) {
+    public Employee search(String text) {
         for (int i = 0; i < this.employees.size(); ++i) {
-            if (this.employees.get(i).getName().equals(employeeName)) {
+            if (this.employees.get(i).getName().equals(text)) {
+                return this.employees.get(i);
+            }
+            else if (this.employees.get(i).getIdCode().equals(text)) {
                 return this.employees.get(i);
             }
         }
