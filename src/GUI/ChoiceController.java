@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,9 +32,21 @@ public class ChoiceController {
             }
         });
 
+        this.visitorFacade.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                loadVisitorFacade();
+            }
+        });
+
         this.employeeFacade.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                loadEmployeeFacade();
+            }
+        });
+
+        this.employeeFacade.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
                 loadEmployeeFacade();
             }
         });

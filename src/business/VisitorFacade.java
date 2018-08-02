@@ -3,6 +3,7 @@ package business;
 import business.beans.Book;
 import exceptions.BookDoesntExistException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VisitorFacade {
@@ -17,7 +18,7 @@ public class VisitorFacade {
         return bookController.read();
     }
 
-    public Book search(String value) {
+    public ArrayList<Book> search(String value) {
         try {
             return this.bookController.searchBook(value);
         } catch (BookDoesntExistException e) {

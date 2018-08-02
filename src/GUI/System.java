@@ -29,15 +29,15 @@ public class System extends Application {
     public void start(Stage primaryStage) {
         instance = this;
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Visitor Facade");
+        this.primaryStage.setTitle("Login");
+
         this.rootScene = new Pane();
 
-        Scene scene = new Scene(this.rootScene);
+        Scene scene = new Scene(this.rootScene, 301, 170);
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
-
-        this.openLoginScreen();
         this.loadBooks();
+        this.openLoginScreen();
     }
 
     private void loadBooks(){

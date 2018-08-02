@@ -12,7 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.KeyCode;
 import java.util.ArrayList;
 
 public class VisitorFacadeController {
@@ -51,7 +51,6 @@ public class VisitorFacadeController {
 
     private AdmFacade adm = new AdmFacade();
     private System s;
-    private ArrayList<Book> searchBooks;
 
     public void initialize(){
         this.s = System.getInstance();
@@ -62,10 +61,15 @@ public class VisitorFacadeController {
                 loadBooksListFacade(searchValue.getText());
             }
         });
+
+        this.searchValue.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                loadBooksListFacade(searchValue.getText());
+            }
+        });
     }
 
     void loadBooksListFacade(String value) {
-        this.searchBooks = adm.searchBook(value);
         data = FXCollections.observableArrayList(adm.searchBook(value));
 
         this.title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -77,6 +81,5 @@ public class VisitorFacadeController {
         this.code.setCellValueFactory(new PropertyValueFactory<>("code"));
 
         listBooksTable.setItems(data);
-        data = FXCollections.observableArrayList(adm.readBooks());
     }
 }

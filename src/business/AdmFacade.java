@@ -122,4 +122,8 @@ public class AdmFacade {
     public void delete(User obj) {
         userController.delete(obj);
     }
+
+    public List<User> read() {
+        return userController.read();
+    }
 }

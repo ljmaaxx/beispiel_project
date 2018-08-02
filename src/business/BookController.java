@@ -35,35 +35,35 @@ public class BookController {
         if (true) {
             for (int i = 0; i < booksToReturn.size(); ++i) {
                 String title = booksToReturn.get(i).getTitle();
-                if (value.equals(title)) {
+                if (value.equalsIgnoreCase(title)) {
                     matchBooks.add(booksToReturn.get(i));
                 }
             }
 
             for (int i = 0; i < booksToReturn.size(); ++i) {
                 String author = booksToReturn.get(i).getAuthors();
-                if (value.equals(author)) {
+                if (value.equalsIgnoreCase(author)) {
                     matchBooks.add(booksToReturn.get(i));
                 }
             }
 
             for (int i = 0; i < booksToReturn.size(); ++i) {
                 String title = booksToReturn.get(i).getTitle();
-                if (value.equals(title)) {
+                if (value.equalsIgnoreCase(title)) {
                     matchBooks.add(booksToReturn.get(i));
                 }
             }
 
             for (int i = 0; i < booksToReturn.size(); ++i) {
                 String code = booksToReturn.get(i).getCode();
-                if (value.equals(code)) {
+                if (value.equalsIgnoreCase(code)) {
                     matchBooks.add(booksToReturn.get(i));
                 }
             }
 
             for (int i = 0; i < booksToReturn.size(); ++i) {
                 String genre = booksToReturn.get(i).getGenre();
-                if (value.equals(genre)) {
+                if (value.equalsIgnoreCase(genre)) {
                     matchBooks.add(booksToReturn.get(i));
                 }
             }

@@ -32,8 +32,8 @@ public class Book {
         return authors;
     }
 
-    public void addAuthors(String name) {
-        this.authors += ", " + name;
+    public void setAuthors(String name) {
+        this.authors = name;
     }
 
     public int getYear() {
