@@ -4,7 +4,8 @@ import business.beans.Book;
 import business.beans.Employee;
 import business.beans.Sale;
 import business.beans.User;
-import exceptions.BookDoesntExistException;
+import exceptions.InexistentUserException;
+import exceptions.UserAlreadyRegisteredException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,21 +27,8 @@ public class AdmFacade {
         bookController.createBook(b);
     }
 
-    public List<Book> readBooks() {
-        return bookController.read();
-    }
-
-    public void updateBook(Book oldBook, Book newBook) {
-        bookController.updateBook(oldBook, newBook);
-    }
-
     public ArrayList<Book> searchBook(String value) {
-        try {
-            return bookController.searchBook(value);
-        } catch (BookDoesntExistException e) {
-            e.getMessage();
-            return null;
-        }
+        return bookController.search(value);
     }
 
     public void importBook(int amount, Book bookImported) {
@@ -55,10 +43,6 @@ public class AdmFacade {
         employeeController.create(obj);
     }
 
-    public List<Employee> readEmployees() {
-        return employeeController.read();
-    }
-
     public void update(Employee oldObj, Employee newObj) {
         employeeController.update(oldObj, newObj);
     }
@@ -67,20 +51,8 @@ public class AdmFacade {
         employeeController.delete(obj);
     }
 
-    public boolean exist(Employee obj) {
-        return employeeController.exist(obj);
-    }
-
-    public Employee searchEmployee(String name) {
-        return employeeController.search(name);
-    }
-
     public void create(Sale obj) {
         saleController.create(obj);
-    }
-
-    public List<Sale> readSales() {
-        return saleController.read();
     }
 
     public void update(Sale oldObj, Sale newObj) {
@@ -89,10 +61,6 @@ public class AdmFacade {
 
     public void delete(Sale obj) {
         saleController.delete(obj);
-    }
-
-    public boolean exist(Sale obj) {
-        return saleController.exist(obj);
     }
 
     public void sale(Book b) {
@@ -104,19 +72,19 @@ public class AdmFacade {
     }
 
     public void saveUser(User user) {
-        userController.saveUser(user);
+        try {
+            userController.saveUser(user);
+        } catch (UserAlreadyRegisteredException e) {
+            e.printStackTrace();
+        }
     }
 
     public User searchByUser(String username) {
-        return userController.searchByUser(username);
-    }
-
-    public boolean existsUser(String username) {
-        return userController.existsUser(username);
-    }
-
-    public boolean login(User user) {
-        return userController.login(user);
+        try {
+            return userController.searchByUser(username);
+        } catch (InexistentUserException e) {
+            return null;
+        }
     }
 
     public void delete(User obj) {
@@ -125,5 +93,9 @@ public class AdmFacade {
 
     public List<User> read() {
         return userController.read();
+    }
+
+    public Employee searchEmployee(String value) {
+        return employeeController.searchByIdCode(value);
     }
 }

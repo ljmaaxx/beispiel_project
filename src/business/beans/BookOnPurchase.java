@@ -1,6 +1,8 @@
 package business.beans;
 
-public class BookOnPurchase {
+import java.io.Serializable;
+
+public class BookOnPurchase implements Serializable {
     private Book bookToBeBought;
     private int amount;
 

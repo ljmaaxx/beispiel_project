@@ -2,8 +2,6 @@ package business;
 
 import business.beans.Book;
 import business.beans.Sale;
-import exceptions.BookDoesntExistException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,11 +43,7 @@ public class EmployeeFacade {
     }
 
     public ArrayList<Book> searchBook(String value) {
-        try {
-            return bookController.searchBook(value);
-        } catch (BookDoesntExistException e) {
-            e.getMessage();
-            return null;
-        }
+        return bookController.search(value);
+
     }
 }

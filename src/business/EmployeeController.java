@@ -3,7 +3,7 @@ package business;
 import business.beans.Employee;
 import data.EmployeeRepository;
 import data.IRepository;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeController {
@@ -29,11 +29,13 @@ public class EmployeeController {
         employeeRepository.delete(obj);
     }
 
-    public boolean exist(Employee obj) {
-        return employeeRepository.exist(obj);
-    }
-
-    public Employee search(String obj) {
-        return (Employee) employeeRepository.search(obj);
+    public Employee searchByIdCode(String value) {
+        ArrayList<Employee> searchingEmployees = (ArrayList) employeeRepository.read();
+        for (int i = 0; i < searchingEmployees.size(); ++i) {
+            if (searchingEmployees.get(i).getIdCode().equals(value)) {
+                return searchingEmployees.get(i);
+            }
+        }
+        return null;
     }
 }

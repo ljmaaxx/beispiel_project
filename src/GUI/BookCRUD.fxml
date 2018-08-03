@@ -41,7 +41,6 @@
                                           <TextField fx:id="bookCreatePriceField" layoutX="220.0" layoutY="291.0" prefHeight="25.0" prefWidth="210.0" />
                                           <TextField fx:id="bookCreateYearField" layoutX="220.0" layoutY="345.0" prefHeight="25.0" prefWidth="210.0" />
                                           <TextField fx:id="bookCreateCodeField" layoutX="220.0" layoutY="408.0" prefHeight="25.0" prefWidth="210.0" />
-                                          <Button fx:id="backButton" layoutX="104.0" layoutY="484.0" mnemonicParsing="false" text="Voltar" />
                                        </children>
                                     </AnchorPane>
                                  </content>

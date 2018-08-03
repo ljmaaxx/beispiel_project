@@ -1,8 +1,9 @@
 package business.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Sale {
+public class Sale implements Serializable {
     private ArrayList<BookOnPurchase> booksOnShoppingCart;
     private double totalPrice = 0;
 

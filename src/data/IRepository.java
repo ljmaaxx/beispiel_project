@@ -1,5 +1,6 @@
 package data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface IRepository<T> {
@@ -8,5 +9,6 @@ public interface IRepository<T> {
     void update(T oldObj, T newObj);
     void delete(T obj);
     boolean exist(T obj);
-    T search(String obj);
+    ArrayList<T> search(String obj);
+    void saveArchive();
 }

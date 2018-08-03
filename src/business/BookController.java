@@ -4,8 +4,6 @@ package business;
 import business.beans.Book;
 import data.BookRepository;
 import data.IRepository;
-import exceptions.BookDoesntExistException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,54 +26,12 @@ public class BookController {
         this.repositoryBooks.update(oldBook, newBook);
     }
 
-    public ArrayList<Book> searchBook(String value) throws BookDoesntExistException {
-        ArrayList<Book> booksToReturn = (ArrayList) this.repositoryBooks.read();
-        ArrayList<Book> matchBooks = new ArrayList<>();
-
-        if (true) {
-            for (int i = 0; i < booksToReturn.size(); ++i) {
-                String title = booksToReturn.get(i).getTitle();
-                if (value.equalsIgnoreCase(title)) {
-                    matchBooks.add(booksToReturn.get(i));
-                }
-            }
-
-            for (int i = 0; i < booksToReturn.size(); ++i) {
-                String author = booksToReturn.get(i).getAuthors();
-                if (value.equalsIgnoreCase(author)) {
-                    matchBooks.add(booksToReturn.get(i));
-                }
-            }
-
-            for (int i = 0; i < booksToReturn.size(); ++i) {
-                String title = booksToReturn.get(i).getTitle();
-                if (value.equalsIgnoreCase(title)) {
-                    matchBooks.add(booksToReturn.get(i));
-                }
-            }
-
-            for (int i = 0; i < booksToReturn.size(); ++i) {
-                String code = booksToReturn.get(i).getCode();
-                if (value.equalsIgnoreCase(code)) {
-                    matchBooks.add(booksToReturn.get(i));
-                }
-            }
-
-            for (int i = 0; i < booksToReturn.size(); ++i) {
-                String genre = booksToReturn.get(i).getGenre();
-                if (value.equalsIgnoreCase(genre)) {
-                    matchBooks.add(booksToReturn.get(i));
-                }
-            }
-        }
-        else {
-            throw new BookDoesntExistException();
-        }
-        return matchBooks;
-    }
-
     public void importBook(int amount, Book bookImported) {
         bookImported.increaseAmountAvailable(amount);
+    }
+
+    public ArrayList<Book> search(String text) {
+        return this.repositoryBooks.search(text);
     }
 
     public void delete(Book obj) {

@@ -41,6 +41,7 @@ public class SaleController {
     }
 
     public Sale search(String obj) {
-        return (Sale) saleRepository.search(obj);
+        return null;
+                //(Sale) saleRepository.searchEmployee(obj);
     }
 }

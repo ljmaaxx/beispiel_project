@@ -31,14 +31,13 @@ public class System extends Application {
         instance = this;
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Login");
-
         this.rootScene = new Pane();
-
         Scene scene = new Scene(this.rootScene, 301, 170);
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
-        this.loadBooks();
-        this.loadEmployees();
+        //this.loadBooks();
+        //this.loadEmployees();
+        primaryStage.centerOnScreen();
         this.openLoginScreen();
     }
 
@@ -49,7 +48,6 @@ public class System extends Application {
                 "FO88 - R", 98.55 );
         Book three = new Book("O Último Flamingo do Lago", "Tabata Northest", 2015, "Romance",
                 "RO90- T", 19.99);
-        //TODO procurar por apenas partes, como um filtro
         one.setAmountAvailable(1);
         two.setAmountAvailable(1);
         three.setAmountAvailable(10);

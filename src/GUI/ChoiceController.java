@@ -52,6 +52,7 @@ public class ChoiceController {
         stage.setScene(scene);
         stage.setTitle("Livraria Beispiel");
         stage.setResizable(true);
+        stage.centerOnScreen();
         s.changeStage(stage);
     }
 
@@ -70,6 +71,7 @@ public class ChoiceController {
         stage.setScene(scene);
         stage.setTitle("Livraria Beispiel");
         stage.setResizable(true);
+        stage.centerOnScreen();
         s.changeStage(stage);
     }
 

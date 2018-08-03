@@ -1,6 +1,8 @@
 package business.beans;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     private String name;
     private int age;
     private String idCode;

@@ -43,6 +43,7 @@ public class AdmFacadeController {
         }
         stage.setScene(scene);
         stage.setTitle("Livros - Livraria Beispiel");
+        stage.centerOnScreen();
         s.changeStage(stage);
     }
 
@@ -60,6 +61,7 @@ public class AdmFacadeController {
         }
         stage.setScene(scene);
         stage.setTitle("Funcionáios - Livraria Beispiel");
+        stage.centerOnScreen();
         s.changeStage(stage);
     }
 
@@ -77,6 +79,7 @@ public class AdmFacadeController {
         }
         stage.setScene(scene);
         stage.setTitle("Usuários - Livraria Beispiel");
+        stage.centerOnScreen();
         s.changeStage(stage);
     }
 }
